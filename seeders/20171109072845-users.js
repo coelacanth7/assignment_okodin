@@ -10,12 +10,12 @@ module.exports = {
 		for (let i = 1; i < 100; i++) {
 			var fname = faker.name.firstName();
 			var lname = faker.name.lastName();
-			var username = faker.internet.userName();
+			// var username = faker.internet.userName();
 
 			users.push({
 				fname: fname,
 				lname: lname,
-				username: username,
+				username: `${fname}${i}`,
 				email: `${fname}${lname}@gmail.com`
 			});
 		}
