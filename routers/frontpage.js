@@ -14,3 +14,5 @@ router.get("/frontpage", (req, res) => {
 });
 
 module.exports = router;
+
+//sequelize model:create --name Profiles --attributes "aboutMe:text talents:text favoriteThings:text yMsgMe:text userId:integer gender:string age:integer distance:integer height:string school:string kids:integer occupation:string bodyType:string image:string lastLogin:date"
