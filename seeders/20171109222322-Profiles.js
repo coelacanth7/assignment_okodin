@@ -1,5 +1,7 @@
 "use strict";
 
+var models = require("./../models");
+
 var faker = require("faker");
 
 module.exports = {
@@ -46,9 +48,8 @@ module.exports = {
 				image,
 				lastLogin
 			});
-
-			return queryInterface.bulkInsert("Profiles", profiles);
 		}
+		return queryInterface.bulkInsert("Profiles", profiles);
 	},
 
 	down: (queryInterface, Sequelize) => {

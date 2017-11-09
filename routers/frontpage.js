@@ -4,11 +4,15 @@ var router = express.Router();
 const seqeulize = require("sequelize");
 var models = require("./../models");
 var sequelize = models.sequelize;
-var User = models.Users;
+var Users = models.Users;
+var Profiles = models.Profiles;
 
 router.get("/frontpage", (req, res) => {
 	// Find all users for frontpage
-	User.findAll().then(users => {
+	Users.findAll({
+		include: [{ model: Profiles }]
+	}).then(users => {
+		// console.log("users: ", JSON.stringify(users, 0, 2));
 		res.render("frontpage/index", { users });
 	});
 });

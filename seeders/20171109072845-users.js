@@ -1,4 +1,5 @@
 "use strict";
+var models = require("./../models");
 
 var faker = require("faker");
 
@@ -16,7 +17,8 @@ module.exports = {
 				fname: fname,
 				lname: lname,
 				username: `${fname}${i}`,
-				email: `${fname}${lname}@gmail.com`
+				email: `${fname}${lname}@gmail.com`,
+				profileId: i
 			});
 		}
 
