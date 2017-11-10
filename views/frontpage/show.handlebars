@@ -1,0 +1,48 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <img src="/{{user.Profile.image}}" alt=""><br>
+  </div>
+  <div class="col-md-6">
+    <h1>{{user.username}}</h1><br>
+    <h2>{{user.Profile.age}} years old, lives in Asgard</h2>
+    {{#if currentUserBtn}}
+      <a href="/editprofile/{{user.username}}"><button class="btn" type="button" name="button">Edit Profile</button></a> 
+    {{/if}}
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-md-8">
+    <h1>About Me</h1>
+
+    <p>{{user.Profile.aboutMe}}</p>
+
+    <h1>Talents</h1>
+
+    <p>{{user.Profile.talents}}</p>
+
+    <h1>Favorite Things</h1>
+
+    <p>{{user.Profile.favoriteThings}}</p>
+
+    <h1>Why Message Me</h1>
+
+    <p>{{user.Profile.yMsgMe}}</p>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Basic Info</h3>
+    <div class="border" style="padding:10px;">
+      <h6>{{user.Profile.gender}}</h6>
+      <h6>Single</h6>
+      <h6>{{user.Profile.bodyType}}</h6>
+      <h6>{{user.Profile.kids}} kids</h6>
+      <h6>{{user.Profile.occupation}}</h6>
+      <h6>Graduated {{user.Profile.school}}</h6>
+    </div>
+  </div>
+
+  <button class="btn" type="button" name="button">Message Me</button>
+</div>

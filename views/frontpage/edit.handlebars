@@ -1,0 +1,47 @@
+<form class="" action="/submitprofilechanges/{{user.username}}" method="post">
+
+<div class="row">
+  <div class="col-md-6">
+    <img src="/{{user.Profile.image}}" alt=""><br>
+  </div>
+  <div class="col-md-6">
+    <h1>{{user.username}}</h1><br>
+    <input type="text" name="user[age]" value="{{user.Profile.age}}">
+    <h2> years old, lives in Asgard</h2>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-md-8">
+    <h1>About Me</h1>
+    <textarea name="user[aboutMe]" rows="8" cols="50">{{user.Profile.aboutMe}}</textarea>
+
+    <h1>Talents</h1>
+    <textarea name="user[talents]" rows="8" cols="50">{{user.Profile.talents}}</textarea>
+
+    <h1>Favorite Things</h1>
+    <textarea name="user[favoriteThings]" rows="8" cols="50">{{user.Profile.favoriteThings}}</textarea>
+
+    <h1>Why Message Me</h1>
+    <textarea name="user[yMsgMe]" rows="8" cols="50">{{user.Profile.yMsgMe}}</textarea><br>
+
+  </div>
+
+  <div class="col-md-4">
+    <h3>Basic Info</h3>
+    <div class="border" style="padding:10px;">
+      <input type="text" name="user[gender]" value="{{user.Profile.gender}}">
+      <h6>Single</h6>
+      <input type="text" name="user[bodyType]" value="{{user.Profile.bodyType}}">
+      <input type="number" name="user[kids]" value="{{user.Profile.kids}}">
+      <h6> kids</h6>
+      <input type="text" name="user[occupation]" value="{{user.Profile.occupation}}">
+      <h6>Graduated </h6>
+      <input type="text" name="user[school]" value="{{user.Profile.school}}">
+    </div>
+  </div>
+
+<input type="submit" class="btn" name="" value="Submit Changes">
+</div>
+</form>
