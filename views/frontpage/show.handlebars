@@ -5,9 +5,9 @@
   </div>
   <div class="col-md-6">
     <h1>{{user.username}}</h1><br>
-    <h2>{{user.Profile.age}} years old, lives in Asgard</h2>
+    <h2>{{user.Profile.age}} years old, {{ user.Profile.distance }} miles from Asgard</h2>
     {{#if currentUserBtn}}
-      <a href="/editprofile/{{user.username}}"><button class="btn" type="button" name="button">Edit Profile</button></a> 
+      <a href="/editprofile/{{user.username}}"><button class="btn" type="button" name="button">Edit Profile</button></a>
     {{/if}}
   </div>
 </div>
@@ -41,6 +41,7 @@
       <h6>{{user.Profile.kids}} kids</h6>
       <h6>{{user.Profile.occupation}}</h6>
       <h6>Graduated {{user.Profile.school}}</h6>
+      <h5>{{user.Profile.height}} inches</h5>
     </div>
   </div>
 

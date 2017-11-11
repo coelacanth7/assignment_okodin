@@ -7,7 +7,8 @@
   <div class="col-md-6">
     <h1>{{user.username}}</h1><br>
     <input type="text" name="user[age]" value="{{user.Profile.age}}">
-    <h2> years old, lives in Asgard</h2>
+    <h2> years old, <input type="text" name="user[distance]" value="{{user.Profile.distance}}">
+       miles from Asgard</h2>
   </div>
 </div>
 
@@ -39,7 +40,10 @@
       <input type="text" name="user[occupation]" value="{{user.Profile.occupation}}">
       <h6>Graduated </h6>
       <input type="text" name="user[school]" value="{{user.Profile.school}}">
+      <input type="text" name="user[height]" value="{{user.Profile.height}}">
+      <h5> inches</h5>
     </div>
+
   </div>
 
 <input type="submit" class="btn" name="" value="Submit Changes">

@@ -11,10 +11,51 @@ router.get("/frontpage", (req, res) => {
 	// Find all users for frontpage
 	Users.findAll({
 		include: [{ model: Profiles }]
-	}).then(users => {
-		// console.log("users: ", JSON.stringify(users, 0, 2));
-		res.render("frontpage/index", { users });
-	});
+	})
+		.then(users => {
+			// console.log("users: ", JSON.stringify(users, 0, 2));
+			req.method = "GET";
+			res.render("frontpage/index", { users });
+		})
+		.catch(e => {
+			res.status(500).send(e.stack);
+		});
+});
+
+// POST A FILTER SEARCH
+router.post("/search", (req, res) => {
+	console.log("SEARCH");
+
+	if (req.body.profile.gender === undefined) {
+		req.body.profile.gender[0] = "male";
+		req.body.profile.gender[1] = "female";
+	}
+
+	Users.findAll({
+		include: [
+			{
+				model: Profiles,
+				where: {
+					$or: [
+						{ gender: req.body.profile.gender },
+						{ gender: req.body.profile.gender[0] },
+						{ gender: req.body.profile.gender[1] }
+					],
+					age: { $gte: req.body.profile.age },
+					height: { $gte: req.body.profile.height },
+					kids: req.body.profile.kids,
+					distance: { $gte: req.body.profile.distance }
+				}
+			}
+		]
+	})
+		.then(users => {
+			// console.log("users: ", JSON.stringify(users, 0, 2));
+			res.render("frontpage/index", { users });
+		})
+		.catch(e => {
+			res.status(500).send(e.stack);
+		});
 });
 
 // find one user
@@ -27,10 +68,14 @@ router.get("/profile/:username", (req, res) => {
 	Users.find({
 		where: { username: req.params.username },
 		include: [{ model: Profiles }]
-	}).then(user => {
-		// console.log("user: ", JSON.stringify(user, 0, 2));
-		res.render("frontpage/show", { user, currentUserBtn });
-	});
+	})
+		.then(user => {
+			// console.log("user: ", JSON.stringify(user, 0, 2));
+			res.render("frontpage/show", { user, currentUserBtn });
+		})
+		.catch(e => {
+			res.status(500).send(e.stack);
+		});
 });
 
 //get a users edit profile page
@@ -38,9 +83,13 @@ router.get("/editprofile/:username", (req, res) => {
 	Users.find({
 		where: { username: req.params.username },
 		include: [{ model: Profiles }]
-	}).then(user => {
-		res.render("frontpage/edit", { user });
-	});
+	})
+		.then(user => {
+			res.render("frontpage/edit", { user });
+		})
+		.catch(e => {
+			res.status(500).send(e.stack);
+		});
 });
 
 // router post from edit profile
