@@ -101,16 +101,17 @@ router.post("/submitprofilechanges/:username", (req, res) => {
 			talents: req.body.user.talents,
 			favoriteThings: req.body.user.favoriteThings,
 			yMsgMe: req.body.user.yMsgMe,
-			userId: req.session.currentUser.id,
 			gender: req.body.user.gender,
 			age: req.body.user.age,
+			distance: req.body.user.distance,
+			height: req.body.user.height,
 			school: req.body.user.school,
 			kids: req.body.user.kids,
 			occupation: req.body.user.occupation,
 			bodyType: req.body.user.bodyType
 		},
 		{
-			where: { userId: profileParams.userId },
+			where: { userId: req.session.currentUser.id },
 			limit: 1
 		}
 	)
