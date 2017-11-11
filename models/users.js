@@ -18,15 +18,23 @@ module.exports = (sequelize, DataTypes) => {
 					});
 
 					Users.hasMany(models.Likes, {
-						foreignKey: "liker",
-						otherKey: "likee"
+						foreignKey: "liker"
+					});
+
+					Users.hasMany(models.Likes, {
+						foreignKey: "likee"
 					});
 
 					Users.belongsToMany(models.Users, {
 						through: models.Likes,
 						as: "likesTable",
-						foreignKey: "liker",
-						otherKey: "likee"
+						foreignKey: "liker"
+					});
+
+					Users.belongsToMany(models.Users, {
+						through: models.Likes,
+						as: "likesTable",
+						foreignKey: "likee"
 					});
 				}
 			}

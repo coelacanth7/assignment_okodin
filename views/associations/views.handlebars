@@ -1,0 +1,19 @@
+<h1>Heres the peeps that viewed you</h1>
+
+<h6>this link doesnt work yet</h6>
+<a href="/peopleyouhaveviewed"><h3>Find the people you have viewed</h3></a>
+
+<div class="row">
+  {{#each views as |view|}}
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{{view.User.Profile.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/profile/{{view.User.username}}">{{view.User.username}}</a></h5>
+        <h5>{{view.User.Profile.age}} years old, {{view.User.Profile.distance}} miles from assgard</h5>
+        <a href="#" class="btn btn-primary">Like</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,18 @@
+<h1>Heres the peeps that you like</h1>
+
+<a href="/likes"><h3>Find the people who have liked you</h3></a>
+
+<div class="row">
+  {{#each likes as |like|}}
+  <div class="col-sm-4">
+    <div class="card">
+      <img class="card-img-top" src="{{like.User.Profile.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/profile/{{like.User.username}}">{{like.User.username}}</a></h5>
+        <h5>{{like.User.Profile.age}} years old, {{like.User.Profile.distance}} miles from assgard</h5>
+        <a href="#" class="btn btn-primary">Like</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

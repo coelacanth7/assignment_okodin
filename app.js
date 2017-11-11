@@ -85,6 +85,9 @@ app.use("/", sessionsRouter);
 var frontpageRouter = require("./routers/frontpage");
 app.use("/", frontpageRouter);
 
+var associationsRouter = require("./routers/associations");
+app.use("/", associationsRouter);
+
 // ----------------------------------------
 // Template Engine
 // ----------------------------------------

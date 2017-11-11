@@ -12,8 +12,11 @@ module.exports = (sequelize, DataTypes) => {
 				associate: function(models) {
 					// associations can be defined here
 					Likes.belongsTo(models.Users, {
-						foreignKey: "liker",
-						otherKey: "likee"
+						foreignKey: "liker"
+					});
+
+					Likes.belongsTo(models.Users, {
+						foreignKey: "likee"
 					});
 				}
 			}
