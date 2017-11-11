@@ -58,6 +58,11 @@ router.post("/search", (req, res) => {
 		});
 });
 
+//a redirect for myprofile
+router.get("/myprofile", (req, res) => {
+	res.redirect(`/profile/${req.session.currentUser.username}`);
+});
+
 // find one user
 router.get("/profile/:username", (req, res) => {
 	// edit profile button on show page IFF user is current user logged in
@@ -127,6 +132,8 @@ router.post("/submitprofilechanges/:username", (req, res) => {
 module.exports = router;
 
 //sequelize model:create --name Profiles --attributes "aboutMe:text talents:text favoriteThings:text yMsgMe:text userId:integer gender:string age:integer distance:integer height:string school:string kids:integer occupation:string bodyType:string image:string lastLogin:date"
+
+// sequelize model:create --name Likes --attributes "liker:integer likee:integer views:boolean"
 
 // associative table
 //

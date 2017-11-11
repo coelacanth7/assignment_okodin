@@ -16,6 +16,18 @@ module.exports = (sequelize, DataTypes) => {
 					Users.hasOne(models.Profiles, {
 						foreignKey: "userId"
 					});
+
+					Users.hasMany(models.Likes, {
+						foreignKey: "liker",
+						otherKey: "likee"
+					});
+
+					Users.belongsToMany(models.Users, {
+						through: models.Likes,
+						as: "likesTable",
+						foreignKey: "liker",
+						otherKey: "likee"
+					});
 				}
 			}
 		}
